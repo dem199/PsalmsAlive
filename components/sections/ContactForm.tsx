@@ -5,12 +5,32 @@ import { Send } from 'lucide-react'
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
   const [form, setForm] = useState({ name: '', email: '', message: '' })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: wire to API route or service (e.g. Resend, Formspree)
-    setSubmitted(true)
+    setLoading(true)
+    setError('')
+
+    try {
+      const res = await fetch('https://formspree.io/f/mzdjvdek', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: form.name, email: form.email, message: form.message }),
+      })
+
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        setError('Something went wrong. Please try again.')
+      }
+    } catch {
+      setError('Unable to send message. Please check your connection.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (submitted) {
@@ -67,12 +87,18 @@ export function ContactForm() {
           className="w-full border border-brown/20 bg-white px-4 py-3 font-lato text-navy text-sm placeholder:text-brown/30 focus:outline-none focus:border-gold transition-colors duration-200 resize-none"
         />
       </div>
+
+      {error && (
+        <p className="font-lato text-red-500 text-sm">{error}</p>
+      )}
+
       <button
         type="submit"
-        className="self-start flex items-center gap-2 font-cinzel text-[0.72rem] tracking-[0.14em] uppercase bg-gold text-navy px-7 py-3.5 hover:bg-gold-light transition-all duration-300 active:scale-95"
+        disabled={loading}
+        className="self-start flex items-center gap-2 font-cinzel text-[0.72rem] tracking-[0.14em] uppercase bg-gold text-navy px-7 py-3.5 hover:bg-gold-light transition-all duration-300 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         <Send size={14} />
-        Send Message
+        {loading ? 'Sending...' : 'Send Message'}
       </button>
     </form>
   )
