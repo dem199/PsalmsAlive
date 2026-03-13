@@ -31,12 +31,10 @@ export const metadata: Metadata = {
   creator: 'Avario Digitals',
   publisher: 'Psalms Alive',
 
-  // Canonical
   alternates: {
     canonical: siteUrl,
   },
 
-  // Open Graph — controls WhatsApp, Facebook, LinkedIn previews
   openGraph: {
     type: 'website',
     url: siteUrl,
@@ -45,18 +43,25 @@ export const metadata: Metadata = {
       'Experience the Psalms through powerful visual storytelling. Short dramatic episodes and comic-style narratives that connect scripture with everyday life.',
     siteName: 'Psalms Alive',
     locale: 'en_US',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Psalms Alive – Where Scripture Meets Story',
+      },
+    ],
   },
 
-  // Twitter / X card
   twitter: {
     card: 'summary_large_image',
     title: 'Psalms Alive – Where Scripture Meets Story',
     description:
       'Experience the Psalms through powerful visual storytelling. Short dramatic episodes that connect scripture with everyday life.',
     site: '@psalmsalive',
+    images: ['/og-image.jpg'],
   },
 
-  // Robots
   robots: {
     index: true,
     follow: true,
@@ -68,7 +73,6 @@ export const metadata: Metadata = {
     },
   },
 
-  // Theme colour (browser tab bar on mobile)
   themeColor: '#0B1F3A',
 }
 
