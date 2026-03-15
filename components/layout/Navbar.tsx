@@ -37,16 +37,24 @@ export function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group">
               <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                viewBox="0 0 28 28"
                 fill="none"
                 stroke="#C9A54C"
-                strokeWidth="1.5"
+                strokeWidth="1.4"
+                strokeLinecap="round"
                 className="transition-transform duration-300 group-hover:scale-110"
               >
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                {/* Light rays rising from spine */}
+                <line x1="14" y1="6" x2="14" y2="1.5" strokeOpacity="0.9" />
+                <line x1="14" y1="6" x2="10.5" y2="2.5" strokeOpacity="0.55" />
+                <line x1="14" y1="6" x2="17.5" y2="2.5" strokeOpacity="0.55" />
+                <line x1="14" y1="6" x2="8.5" y2="4" strokeOpacity="0.3" />
+                <line x1="14" y1="6" x2="19.5" y2="4" strokeOpacity="0.3" />
+                {/* Open book */}
+                <path d="M3 7h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H3z" />
+                <path d="M25 7h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z" />
               </svg>
               <span className="font-playfair text-cream text-lg leading-none">
                 Psalms<span className="text-gold italic"> Alive</span>

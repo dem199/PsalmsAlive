@@ -42,9 +42,16 @@ export default function AboutPage() {
               <div className="absolute inset-4 border border-gold/20" />
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(201,165,76,0.08)_0%,transparent_65%)]" />
               <div className="relative text-center px-8">
-                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#C9A54C" strokeWidth="1" opacity="0.35" className="mx-auto mb-6">
-                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                <svg width="72" height="72" viewBox="0 0 28 28" fill="none" stroke="#C9A54C" strokeWidth="1" strokeLinecap="round" opacity="0.45" className="mx-auto mb-6">
+                  {/* Light rays */}
+                  <line x1="14" y1="6" x2="14" y2="1.5" strokeOpacity="0.9" />
+                  <line x1="14" y1="6" x2="10.5" y2="2.5" strokeOpacity="0.55" />
+                  <line x1="14" y1="6" x2="17.5" y2="2.5" strokeOpacity="0.55" />
+                  <line x1="14" y1="6" x2="8.5" y2="4" strokeOpacity="0.3" />
+                  <line x1="14" y1="6" x2="19.5" y2="4" strokeOpacity="0.3" />
+                  {/* Open book */}
+                  <path d="M3 7h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H3z"/>
+                  <path d="M25 7h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z"/>
                 </svg>
                 <p className="font-playfair italic text-gold/40 text-sm leading-relaxed">
                   &ldquo;Thy word is a lamp unto my feet, and a light unto my path.&rdquo;

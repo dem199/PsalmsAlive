@@ -9,9 +9,9 @@ const footerNav = {
   ],
   Connect: [
     { label: 'Contact Us', href: '/contact' },
-    { label: 'YouTube', href: '#' },
-    { label: 'Instagram', href: '#' },
-    { label: 'Facebook', href: '#' },
+    { label: 'YouTube', href: '#youtube' },
+    { label: 'Instagram', href: '#instagram' },
+    { label: 'Facebook', href: '#facebook' },
   ],
 }
 
@@ -24,15 +24,23 @@ export function Footer() {
           <div>
             <Link href="/" className="flex items-center gap-2.5 mb-4 group w-fit">
               <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                viewBox="0 0 28 28"
                 fill="none"
                 stroke="#C9A54C"
-                strokeWidth="1.5"
+                strokeWidth="1.4"
+                strokeLinecap="round"
               >
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                {/* Light rays rising from spine */}
+                <line x1="14" y1="6" x2="14" y2="1.5" strokeOpacity="0.9" />
+                <line x1="14" y1="6" x2="10.5" y2="2.5" strokeOpacity="0.55" />
+                <line x1="14" y1="6" x2="17.5" y2="2.5" strokeOpacity="0.55" />
+                <line x1="14" y1="6" x2="8.5" y2="4" strokeOpacity="0.3" />
+                <line x1="14" y1="6" x2="19.5" y2="4" strokeOpacity="0.3" />
+                {/* Open book */}
+                <path d="M3 7h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H3z" />
+                <path d="M25 7h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z" />
               </svg>
               <span className="font-playfair text-cream text-lg">
                 Psalms<span className="text-gold italic"> Alive</span>
@@ -55,7 +63,7 @@ export function Footer() {
               </h4>
               <ul className="flex flex-col gap-3">
                 {links.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.label}>
                     <Link
                       href={link.href}
                       className="font-lato text-cream/45 text-sm hover:text-gold transition-colors duration-200"
