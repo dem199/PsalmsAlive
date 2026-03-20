@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const footerNav = {
   Explore: [
@@ -22,29 +23,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-2.5 mb-4 group w-fit">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 28 28"
-                fill="none"
-                stroke="#C9A54C"
-                strokeWidth="1.4"
-                strokeLinecap="round"
-              >
-                {/* Light rays rising from spine */}
-                <line x1="14" y1="6" x2="14" y2="1.5" strokeOpacity="0.9" />
-                <line x1="14" y1="6" x2="10.5" y2="2.5" strokeOpacity="0.55" />
-                <line x1="14" y1="6" x2="17.5" y2="2.5" strokeOpacity="0.55" />
-                <line x1="14" y1="6" x2="8.5" y2="4" strokeOpacity="0.3" />
-                <line x1="14" y1="6" x2="19.5" y2="4" strokeOpacity="0.3" />
-                {/* Open book */}
-                <path d="M3 7h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H3z" />
-                <path d="M25 7h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z" />
-              </svg>
-              <span className="font-playfair text-cream text-lg">
-                Psalms<span className="text-gold italic"> Alive</span>
-              </span>
+            <Link href="/" className="flex items-center mb-4 w-fit group">
+              <Image
+                src="/logo.png"
+                alt="Psalms Alive"
+                width={130}
+                height={46}
+                className="h-9 w-auto opacity-90 group-hover:opacity-100 transition-opacity duration-200"
+              />
             </Link>
             <p className="font-lato text-cream/40 text-sm leading-relaxed max-w-xs">
               A faith storytelling platform bringing the Book of Psalms to life through

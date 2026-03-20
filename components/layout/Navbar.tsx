@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -35,30 +36,15 @@ export function Navbar() {
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-[70px]">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 28 28"
-                fill="none"
-                stroke="#C9A54C"
-                strokeWidth="1.4"
-                strokeLinecap="round"
-                className="transition-transform duration-300 group-hover:scale-110"
-              >
-                {/* Light rays rising from spine */}
-                <line x1="14" y1="6" x2="14" y2="1.5" strokeOpacity="0.9" />
-                <line x1="14" y1="6" x2="10.5" y2="2.5" strokeOpacity="0.55" />
-                <line x1="14" y1="6" x2="17.5" y2="2.5" strokeOpacity="0.55" />
-                <line x1="14" y1="6" x2="8.5" y2="4" strokeOpacity="0.3" />
-                <line x1="14" y1="6" x2="19.5" y2="4" strokeOpacity="0.3" />
-                {/* Open book */}
-                <path d="M3 7h6a4 4 0 0 1 4 4v12a3 3 0 0 0-3-3H3z" />
-                <path d="M25 7h-6a4 4 0 0 0-4 4v12a3 3 0 0 1 3-3h7z" />
-              </svg>
-              <span className="font-playfair text-cream text-lg leading-none">
-                Psalms<span className="text-gold italic"> Alive</span>
-              </span>
+            <Link href="/" className="flex items-center group">
+              <Image
+                src="/logo.png"
+                alt="Psalms Alive"
+                width={140}
+                height={50}
+                className="h-10 w-auto transition-opacity duration-300 group-hover:opacity-85"
+                priority
+              />
             </Link>
 
             {/* Desktop nav */}
