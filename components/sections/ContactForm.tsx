@@ -15,16 +15,23 @@ export function ContactForm() {
     setError('')
 
     try {
-      const res = await fetch('https://formspree.io/f/mzdjvdek', {
+      const WP_URL = process.env.NEXT_PUBLIC_WP_URL || 'https://cms.psalmsalive.com'
+
+      const res = await fetch(`${WP_URL}/wp-json/psalmsalive/v1/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: form.name, email: form.email, message: form.message }),
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
       })
 
       if (res.ok) {
         setSubmitted(true)
       } else {
-        setError('Something went wrong. Please try again.')
+        const data = await res.json().catch(() => ({}))
+        setError(data?.message || 'Something went wrong. Please try again.')
       }
     } catch {
       setError('Unable to send message. Please check your connection.')
